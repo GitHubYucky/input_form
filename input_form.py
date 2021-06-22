@@ -1,9 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-driver = webdriver.Chrome()
-chrome_options= webdriver.ChormeOptions()
-chrome_options.add_argument('disable-notifications')
+chrome_options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+chrome_options.add_experimental_option("prefs",prefs)
+driver = webdriver.Chrome(chrome_options=chrome_options)
 
 driver.get("https://ytmp3.cc/youtube-to-mp3/")#put here the adress of your page
 # elem = driver.find_elements_by_xpath("//*[@type='submit']")#put here the content you have put in Notepad, ie the XPath
